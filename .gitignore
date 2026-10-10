@@ -1,0 +1,25 @@
+# ===== Secrets & configuration locale =====
+.env
+.env.*
+!.env.example
+
+# ===== IDE =====
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+!.vscode/extensions.json
+
+# ===== Système =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Filet de sécurité (déjà couverts par les .gitignore des sous-projets) =====
+node_modules/
+target/
