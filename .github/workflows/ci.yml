@@ -5,13 +5,18 @@ on: [push, pull_request]
 jobs:
   backend:
     runs-on: ubuntu-latest
+    env:
+      DB_URL: jdbc:postgresql://localhost:5432/taskmanager
+      DB_USERNAME: taskmanager
+      DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
+      JWT_SECRET: ${{ secrets.CI_JWT_SECRET }}
     services:
       postgres:
         image: postgres:16
         env:
           POSTGRES_DB: taskmanager
           POSTGRES_USER: taskmanager
-          POSTGRES_PASSWORD: taskmanager
+          POSTGRES_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         ports:
           - 5432:5432
         options: >-
