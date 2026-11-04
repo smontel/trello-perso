@@ -1,6 +1,5 @@
-package com.taskmanager.config;
+package com.taskmanager.security;
 
-import com.taskmanager.security.JwtAuthenticationFilter;
 import com.taskmanager.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
