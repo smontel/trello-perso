@@ -26,7 +26,7 @@ public class TaskColumn {
     @Column(nullable = false)
     private Integer position;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "board_id")
     private Board board;
 
@@ -40,5 +40,8 @@ public class TaskColumn {
     @UpdateTimestamp
     @Column(name = "modified_at")
     private LocalDateTime updatedAt;
+
+    @Version
+    private Long version;
 
 }

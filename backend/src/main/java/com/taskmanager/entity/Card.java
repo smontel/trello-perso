@@ -22,9 +22,10 @@ public class Card {
     @Column(nullable = false)
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "task_column_id")
     private TaskColumn taskColumn;
 
@@ -41,4 +42,7 @@ public class Card {
     @UpdateTimestamp
     @Column(name = "modified_at")
     private LocalDateTime updatedAt;
+
+    @Version
+    private Long version;
 }
